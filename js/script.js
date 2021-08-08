@@ -70,7 +70,7 @@ boxProcedure.appendChild(CreateHomePage());
 ////////////////////////////////////////////////////////////
 
 setTimeout(() => {
-  fetch('http://api.openweathermap.org/data/2.5/weather?id=625143&lang=ru&appid=cd36023287f61ddbf4c6515fd0f5163d').then(function (resp) {return resp.json() }).then(function (data) {
+  fetch('https://api.openweathermap.org/data/2.5/weather?id=625143&lang=ru&appid=cd36023287f61ddbf4c6515fd0f5163d').then(function (resp) {return resp.json() }).then(function (data) {
   document.querySelector('.header__weather-content').innerHTML = Math.round(data.main.temp - 273) + '&deg;';
   document.querySelector('.header__weather-image').innerHTML = `<img src="https://openweathermap.org/img/wn/${data.weather[0]['icon']}@2x.png">`;
   })
@@ -78,7 +78,7 @@ setTimeout(() => {
 });
 }, 0);
 setInterval(() => {
-  fetch('http://api.openweathermap.org/data/2.5/weather?id=625143&lang=ru&appid=cd36023287f61ddbf4c6515fd0f5163d').then(function (resp) {return resp.json() }).then(function (data) {
+  fetch('https://api.openweathermap.org/data/2.5/weather?id=625143&lang=ru&appid=cd36023287f61ddbf4c6515fd0f5163d').then(function (resp) {return resp.json() }).then(function (data) {
   document.querySelector('.header__weather-content').innerHTML = Math.round(data.main.temp - 273) + '&deg;';
   document.querySelector('.header__weather-img').innerHTML = `<img src="https://openweathermap.org/img/wn/${data.weather[0]['icon']}@2x.png">`;
   })
