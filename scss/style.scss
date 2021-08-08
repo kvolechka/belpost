@@ -1,0 +1,209 @@
+@import "_reset";
+@import "_fonts";
+
+$clr_white: #FFFF;
+$clr_title: #2B2E2D;
+$clr_text-content: #2C2C33;
+$clr_bg: #009DE9;
+
+%flex-space-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+@mixin fontz($ff, $fw, $fs, $fz, $lh, $ls, $clr) {
+  font-family: $ff;
+  font-weight: $fw;
+  font-style: $fs;
+  font-size: $fz;
+  line-height: $lh;
+  letter-spacing: $ls;
+  color: $clr;
+}
+
+
+body, html {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+.main {
+  flex: 1 0 auto;
+}
+.footer {
+  flex: 0 0 auto;
+}
+.container {
+  max-width: 990px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+
+.header {
+  background: $clr_bg;
+  &__inner {
+    @extend %flex-space-between;
+    padding: 18px 0 14px;
+  }
+  &__inner-left {
+    @extend %flex-space-between;
+  }
+  &__weather {
+    display: flex;
+    padding: 0 25px 0 53px;
+  }
+  &__weather-img {
+    width: 28px;
+    height: 28px;
+    margin-left: 11px;
+  }
+  &__time-content,
+  &__weather-content,
+  &__date-content {
+    @include fontz('Open Sans', 400, normal, 2.14rem, 2.93rem, 0.02em, $clr_white);
+  }
+}
+
+.slider-wrapper {
+  width: 100%;
+  position: relative;
+  &__slide {
+    width: 100%;
+    height: 100%;
+    display: none;
+  }
+  &__slide.active {
+    display: block;
+  }
+  &__image {
+    width: 100%;
+    height: 100%;
+  }
+  &__button-prev {
+    position: absolute;
+    left: 20px;
+    top: 44%;
+  }
+  &__button-next {
+    position: absolute;
+    right: 20px;
+    top: 44%;
+  }
+}
+
+.home-bg {
+  background-image: url('../img/background-main.png');
+}
+.content-bg {
+  background-image: url('../img/background-content.png');
+}
+
+.top-content {
+  background-repeat: no-repeat;
+  background-size: cover;
+  -moz-background-size: cover;
+  background-position: center;
+  position: relative;
+  .container {
+    max-width: 1000px;
+  }
+  &__home {
+    position: relative;
+    padding: 60px 0 534px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  &__home.others-page {
+    padding: 30px 0 514px;
+  }
+  &__title {
+    padding-top: 15px;
+    text-align: center;
+    @include fontz('Open Sans', 700, normal, 1.86rem, 2.5rem, 0em, $clr_text-content);
+  }
+  &__back-arrow {
+    position: absolute;
+    top: 15px;
+    right: 30px;
+    cursor: pointer;
+    width: 62px;
+  }
+  &__home-button {
+    position: absolute;
+    top: 15px;
+    left: 30px;
+    cursor: pointer;
+    width: 40px;
+  }
+  &__text-content {
+    @include fontz('Roboto', 400, normal, 1.43rem, 1.64rem, 0em, $clr_text-content);
+    padding:30px 0 474px ;
+  }
+  &__home-box {
+    background: $clr_white;
+    box-shadow: 2px 11px 16px rgba(100, 105, 108, 0.24);
+    border-radius: 45px;
+    margin-right: 35px;
+    margin-bottom: 35px;
+    width: 300px;
+    height: 250px;
+    cursor: pointer;
+    padding: 60px 20px 35px 25px;
+    @extend %flex-space-between;
+    flex-direction: column;
+  }
+  &__home-box:nth-of-type(3n) {
+    margin-right: 0;
+  }
+  &__home-box:last-of-type {
+    margin-bottom: 0;
+    margin-right: 0;
+  }
+  &__home-title {
+    @include fontz('Roboto', 500, normal, 1.57rem, 1.86rem, 0.02em, $clr_title);
+    text-transform: uppercase;
+    text-align: right;
+  }
+}
+
+.footer {
+  background: $clr_bg;
+  &__content {
+    padding: 12px 0 10px;
+  }
+  &__info {
+    @extend %flex-space-between;
+    align-items: center;
+  }
+  &__info-text {
+    @include fontz('Montserrat', 500, normal, 1.14rem, 1.39rem, 0.02em, $clr_white);
+  }
+  &__info-text.text-left {
+    text-align: right;
+  }
+  &__logo {
+    padding: 0 45px;
+  }
+  &__copyright {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 17px;
+  }
+  &__copyright-text {
+    @include fontz('Montserrat', 600, normal, 1rem, 1.21rem, 0.02em, $clr_white);
+  }
+  &__copyright-logo {
+    padding: 0 19px;
+  }
+  &__copyright-logo img {
+    width: 75px;
+    height: 17px;
+  }
+}
